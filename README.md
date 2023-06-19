@@ -1,5 +1,5 @@
 # Aprovecha!
-![Logo](logo.jpeg)
+![Logo](images/logo.jpeg)
 
 ## Problema
 ## Objetivos Generales
@@ -7,4 +7,4 @@
 ## Usuario
 ## Solución
 ### Database Model
-![DBM](DBM.jpeg)
+![DBM](images/DBM.jpeg)
