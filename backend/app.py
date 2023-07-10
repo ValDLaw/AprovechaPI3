@@ -3,12 +3,14 @@ import datetime
 import flask
 import sqlalchemy
 import flask_sqlalchemy
+from flask_cors import CORS
 import hashlib
 import uuid
 
 app = flask.Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:postgres@localhost:5432/aprovecha'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:onepiecelaw@localhost:5432/aprovecha'
 db = flask_sqlalchemy.SQLAlchemy(app)
+CORS(app, origins="*")
 
 
 class User(db.Model):
@@ -120,6 +122,31 @@ def register_user():
     except Exception as e:
         db.session.rollback()
         return flask.jsonify({'error': str(e)}), 500
+
+
+@app.route('/users/login', methods=['POST'])
+def login_user():
+    try:
+        data = flask.request.json
+        email = data['email']
+        password = data['password']
+        
+        user = User.query.filter_by(email=email).first()
+        
+        if user:
+            hashed_password = hashlib.sha256(password.encode('utf-8')).hexdigest()
+            if user.password == hashed_password:
+                return flask.jsonify({'id': user.id, 'success':True, 'nombres': user.nombres, 'apellidos': user.apellidos }), 200
+            else:
+                return flask.jsonify({'error': 'Contraseña incorrecta'}), 401
+        else:
+            return flask.jsonify({'error': 'Usuario no encontrado'}), 404
+        
+    except KeyError:
+        return flask.jsonify({'error': 'Campos incompletos'}), 400
+    except Exception as e:
+        return flask.jsonify({'error': str(e)}), 500
+
 
 
 @app.route('/users/<int:user_id>', methods=['GET'])
