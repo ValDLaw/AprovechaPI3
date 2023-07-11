@@ -81,7 +81,7 @@ const store = createStore({
       commit("setUser" , null)
       console.log(this.state.user)
       commit("setCart", null)
-      router.push("users/login")
+      router.push("/login")
     },
   }
 

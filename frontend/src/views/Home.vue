@@ -5,8 +5,8 @@
           <Catalogo/>
         </v-container>
       </v-main>
-    </v-app>
-  </template>
+  </v-app>
+</template>
   
   <script > 
   import Catalogo from "../components/Catalogo.vue"

@@ -1,5 +1,15 @@
 <template>
   <div class="container">
+    <div class="logout">
+      <button
+        prepend-icon="mdi-brain"
+        class="black"
+        variant="outlined"
+        @click="logout"
+      >
+        Salir
+      </button>
+    </div>
     <div class="header">
       <img :src="require('@/assets/logo.jpeg')" alt="Logo de Aprovecha!" class="logo" />
     </div>
@@ -89,6 +99,7 @@
 
 <script>
 import { mapGetters , mapMutations} from 'vuex';
+import {mapActions} from "vuex"
 import router  from "../router/index.js"
 export default {
   name: "Catalogo",
@@ -156,6 +167,7 @@ export default {
   ,
   methods: {
     ...mapMutations(['setCart']),
+    ...mapActions(['logout']),
     addToCart(product) {
       this.cart.push(product);
     },
@@ -175,14 +187,9 @@ export default {
       console.log(this.cart)
       this.setCart(this.cart)
       // Lógica para realizar el pedido
+
       router.push("/venta", { name: 'cart', params: { cart: this.cart } })
-      // Después de realizar el pedido, establecer orderPlaced en true y ocultar el botón "Realizar pedido"
-      this.orderPlaced = true;
-      this.showPlaceOrderButton = false;
-      setTimeout(() => {
-      this.showPlaceOrderButton = true;
-      this.orderPlaced = false;
-    }, 5000); 
+      // Después de realizar el pedido, establecer orderPlaced en true y ocultar el 
     }
   }
 };

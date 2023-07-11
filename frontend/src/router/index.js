@@ -16,12 +16,13 @@ const routes = [
     path: "/venta",
     name : "Venta",
     component: () => import("../views/Venta.vue"),
+    meta : {requiresAuth: true},
     props : true
   },
   {
     path: '/login',
     name: 'Login',
-    component: () => import('../views/Login.vue')
+    component: () => import('../views/Login.vue'),
   }
 ]
 
