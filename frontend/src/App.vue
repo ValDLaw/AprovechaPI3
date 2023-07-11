@@ -140,8 +140,18 @@ export default {
 }
 
 </style>
--->
 
+
+
+<script>
+export default {
+
+}
+</script>
+
+<style>
+
+</style>
 <template>
   <div class="container">
     <div class="header">
@@ -617,3 +627,50 @@ button:hover {
 }
 
 </style>
+-->
+
+
+
+
+
+
+<template>
+  <div class="app">
+    <div class="title-box">
+      <h1 class="animate__animated fadeIn" style="font-size: 70px; color: #212832; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; animation: bannerAnimation 3s infinite alternate">APROVECHA</h1>
+    </div>
+    <div class="links" v-if="!isLoggedIn">
+      <router-link class="button-link" to="/login" style="margin-right: 20px;">Login</router-link>
+      <router-link class="button-link" to="/register">Register</router-link>
+    </div>
+    <router-view></router-view>
+  </div>
+</template>
+
+<script>
+import { mapGetters } from 'vuex';
+export default {
+  name: "App",
+  computed: {
+    ...mapGetters(['isAuthenticatedExists']),
+    isLoggedIn() {
+      return this.isAuthenticatedExists;
+    }
+  },
+  data() {
+    return {
+    };
+  },
+  mounted() {
+    this.showElements();
+  },
+  methods: {
+    showElements() {
+      const elements = document.querySelectorAll('.fadeIn');
+      elements.forEach((element) => {
+        element.classList.add('show');
+      });
+    },
+  },
+};
+</script>

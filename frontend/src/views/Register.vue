@@ -1,8 +1,6 @@
 <template>
     <div class="container">
-      <h1 class="animate__animated fadeInDown">¡Bienvenid@ a Aurora!</h1>
-      <h2 class="animate__animated fadeInDown">Tu consejera universitaria en UTEC</h2>
-      <h3 class="animate__animated fadeInUp">"Ayuda a las personas a encontrar una nueva perspectiva en su vida y a superar los desafíos."</h3>
+      <h1 class="animate__animated fadeInDown">¡Bienvenid@ a Aprovecha!</h1>
   
       <div>
         <div class="form-header">
@@ -88,7 +86,7 @@
         </form>
   
         <div class="d-flex mt-3 align-items-center">
-          <div class="p-2">¿Ya tienes una cuenta de Aurora?</div>
+          <div class="p-2">¿Ya tienes una cuenta de Aprovecha?</div>
           <div class="p-2">
             <router-link to="/login">Login</router-link>
           </div>
