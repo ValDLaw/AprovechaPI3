@@ -1,9 +1,9 @@
 <template>
-  <div class="container">
+  <div class="containere">
     <div class="logout">
       <button
         prepend-icon="mdi-brain"
-        class="black"
+        class="button-black"
         variant="outlined"
         @click="logout"
       >
@@ -196,15 +196,29 @@ export default {
 </script>
 
 <style>
-.container {
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+
+.containere {
     height: auto;
-    width: max-content;
     text-align: center;
     background-color: #f5f5f5;
     border-radius: 8px;
 }
 
-
+.button-black{
+  display: flex;
+  justify-content: flex-end;
+}
 
 .header {
   display: flex;
@@ -296,6 +310,18 @@ export default {
   margin-bottom: 10px;
 }
 
+h3 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
 .product-item .product-image img {
   width: 100px;
   height: 100px;
@@ -326,6 +352,8 @@ export default {
   width: 300px;
   display: flex;
   flex-direction: column;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   justify-items: center;
   justify-content: center;
   text-align: center;
@@ -348,8 +376,9 @@ export default {
   display: flex;
   align-items: center;
   text-align: center;
-  justify-content: center;
-  margin-bottom: 5px;
+  justify-content: space-between;
+  margin-bottom: 15px;
+
 }
 
 .cart li button {
@@ -361,6 +390,21 @@ export default {
   cursor: pointer;
 }
 
+.cart button {
+  background-color: #32cd32;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+
+.cart button:hover {
+  background-color: #228b22;
+}
+
 .cart li button:hover {
   background-color: #ff3333;
 }
@@ -369,38 +413,54 @@ export default {
   margin-top: 20px;
   font-weight: bold;
   text-align: right;
+  color: #228b22;
+
 }
+
 
 .delivery-options {
   margin-top: 20px;
 }
 
 .delivery-options h4 {
+  font-size: 18px;
+  color: #333;
   margin-bottom: 10px;
 }
 
 .delivery-options label {
-  display:flex;
-  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333;
 }
 
 .delivery-options input[type="radio"] {
-  margin-right: 5px;
+  margin-right: 10px;
+}
+
+.pickup-options,
+.delivery-address {
+  margin-top: 10px;
 }
 
 .pickup-options label,
 .delivery-address label {
   display: block;
   margin-bottom: 5px;
+  color: #333;
 }
 
 .pickup-options select,
 .delivery-address input[type="text"] {
   width: 100%;
-  padding: 8px;
+  padding: 5px;
   border-radius: 5px;
   border: 1px solid #ccc;
 }
+
+.pickup-options select option {
+  padding: 5px;
+}
+
 
 @keyframes fadeIn {
   0% {

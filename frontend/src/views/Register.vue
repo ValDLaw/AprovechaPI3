@@ -82,8 +82,14 @@
               <option value="UCV">Universidad Cesar Vallejo</option>
               <option value="USIL">Universidad San Ignacio de Loyola</option>
             </select>
-  
-        </form>
+          
+            <input
+              type="submit"
+              value="Registrar"
+              class="btn btn-primary btn-lg"
+            />
+
+          </form>
   
         <div class="d-flex mt-3 align-items-center">
           <div class="p-2">¿Ya tienes una cuenta de Aprovecha?</div>
@@ -119,11 +125,19 @@
     methods:{
       ...mapActions(['login']),
       register() {
-        console.log("TIPO", this.role)
+        console.log("dni:", this.dni);
+        console.log("email:", this.email);
+        console.log("password:", this.password);
+        console.log("first_name:", this.first_name);
+        console.log("last_name:", this.last_name);
+        console.log("phone:", this.phone);
+        console.log("sex:", this.sex);
+        console.log("address:", this.address);
+        console.log("educational_institution:", this.educational_institution);
+
         fetch("http://127.0.0.1:5000/users/register", {
           method: "POST",
           body: JSON.stringify({
-            body:{
               dni: this.dni, 
               email: this.email , 
               password: this.password, 
@@ -133,7 +147,6 @@
               sex: this.sex,
               address: this.address, 
               educational_institution: this.educational_institution
-            }
           }),
           headers: {
             "Content-Type": "application/json",
@@ -141,7 +154,7 @@
         })
           .then((res) => res.json())
           .then((resJson) => {
-            if (resJson["success"]) {
+            if (resJson["id"]) {
               const temp = {
                 email :this.email,
                 password: this.password,
