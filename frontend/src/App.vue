@@ -637,7 +637,7 @@ button:hover {
 <template>
   <div class="app">
     <div class="title-box">
-      <h1 class="animate__animated fadeIn" style="font-size: 70px; color: #212832; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; animation: bannerAnimation 3s infinite alternate">APROVECHA</h1>
+      <h1 class="animate__animated fadeIn" style="font-size: 70px; color: #306660; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; animation: bannerAnimation 3s infinite alternate">APROVECHA</h1>
     </div>
     <div class="links" v-if="!isLoggedIn">
       <router-link class="button-link" to="/login" style="margin-right: 20px;">Login</router-link>
@@ -674,3 +674,60 @@ export default {
   },
 };
 </script>
+
+<style>
+.app {
+  text-align: center;
+  background-color: #20c67a;
+  height: 1000px;
+}
+
+.title-box {
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 70px;
+  color: #212832;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  animation: bannerAnimation 3s infinite alternate;
+}
+
+.links {
+  margin-top: 20px;
+}
+
+.button-link {
+  margin-right: 20px;
+}
+
+.show {
+  opacity: 1;
+}
+
+@keyframes bannerAnimation {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+.button-link {
+  background-color: #fef6cd;
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: #212832;
+  text-decoration: none;
+}
+
+.button-link:hover {
+  background-color: #fde9a9;
+}
+
+.button-link:active {
+  background-color: #fcd984;
+}
+
+</style>
