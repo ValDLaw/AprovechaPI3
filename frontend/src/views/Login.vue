@@ -61,7 +61,7 @@
     margin: 0 auto;
     padding: 20px;
     text-align: center;
-    background-color: #f5f5f5;
+    background-color: white;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }

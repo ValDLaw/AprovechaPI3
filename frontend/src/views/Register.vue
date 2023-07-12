@@ -168,7 +168,7 @@
     margin: 0 auto;
     padding: 20px;
     text-align: center;
-    background-color: #f5f5f5;
+    background-color: white;
   }
   
   h1 {
